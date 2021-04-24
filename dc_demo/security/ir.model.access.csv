@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dc_foo,account.dc.foo,model_dc_foo,,1,1,1,1
