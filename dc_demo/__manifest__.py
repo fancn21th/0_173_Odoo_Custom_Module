@@ -9,10 +9,11 @@
     'category': 'Productivity/Demo',
     'website': 'https://www.digitalchina.com',
     'images' : [],
-    'depends' : [],
+    'depends' : ['sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/foo.xml',
+        'views/sale.xml',
     ],
     'demo': [],
     'qweb': [],
