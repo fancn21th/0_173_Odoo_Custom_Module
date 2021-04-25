@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <record id="search_foo" model="ir.ui.view">
+      <field name="name">dc.foo.search</field>
+      <field name="model">dc.foo</field>
+      <field name="arch" type="xml">
+          <search string="Foo">
+              <field name="name" />
+              <field name="state" />
+              <separator />
+              <filter string="Bar" name="bar" domain="[('state', '=', 'bar')]"/>
+              <group expand="1" string="Group By">
+                 <filter string="State" name="state" context="{'group_by':'state'}"/>
+              </group>
+          </search>
+      </field>
+  </record>
+
   <record id="tree_foo" model="ir.ui.view">
       <field name="name">dc.foo.tree</field>
       <field name="model">dc.foo</field>
