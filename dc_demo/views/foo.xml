@@ -16,6 +16,7 @@
                                 <ul>
                                     <li><field name="name"/></li>
                                     <li><field name="state"/></li>
+                                    <li><field name="start_datetime"/></li>
                                 </ul>
                             </div>
                         </div>
@@ -48,6 +49,7 @@
             <tree>
                 <field name="name" />
                 <field name="state" />
+                <field name="start_datetime" />
             </tree>
         </field>
     </record>
@@ -60,10 +62,13 @@
                 <sheet>
                 <group>
                     <group>
-                    <field name="name" />
+                        <field name="name" />
                     </group>
                     <group>
-                    <field name="state" />
+                        <field name="state" />
+                    </group>
+                    <group>
+                        <field name="start_datetime" />
                     </group>
                 </group>
                 </sheet>
@@ -92,8 +97,8 @@
         parent="foo_root"
         sequence="10"/>
 
-    <menuitem id="foo_bar"
-        name="Bar"
+    <menuitem id="foo_bar_baz"
+        name="Baz"
         parent="foo_bar_root"
         sequence="10"
         action="action_foo"/>
