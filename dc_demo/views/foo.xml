@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <!-- search -->
   <record id="search_foo" model="ir.ui.view">
       <field name="name">dc.foo.search</field>
       <field name="model">dc.foo</field>
@@ -15,7 +16,7 @@
           </search>
       </field>
   </record>
-
+  <!-- tree -->
   <record id="tree_foo" model="ir.ui.view">
       <field name="name">dc.foo.tree</field>
       <field name="model">dc.foo</field>
@@ -26,7 +27,7 @@
           </tree>
       </field>
   </record>
-
+  <!-- form -->
   <record id="form_foo" model="ir.ui.view">
       <field name="name">dc.foo.form</field>
       <field name="model">dc.foo</field>
@@ -45,7 +46,7 @@
           </form>
       </field>
   </record>
-
+  <!-- action -->
   <record id="action_foo" model="ir.actions.act_window">
       <field name="name">Action Foo</field>
       <field name="type">ir.actions.act_window</field>
@@ -57,7 +58,7 @@
           </p>
       </field>
   </record>
-
+  <!-- menu -->
   <menuitem id="foo_root"
       name="Foo"
       sequence="10"/>
