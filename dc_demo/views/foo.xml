@@ -1,76 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- search -->
-  <record id="search_foo" model="ir.ui.view">
-      <field name="name">dc.foo.search</field>
-      <field name="model">dc.foo</field>
-      <field name="arch" type="xml">
-          <search string="Foo">
-              <field name="name" />
-              <field name="state" />
-              <separator />
-              <filter string="Bar" name="bar" domain="[('state', '=', 'bar')]"/>
-              <group expand="1" string="Group By">
-                 <filter string="State" name="state" context="{'group_by':'state'}"/>
-              </group>
-          </search>
-      </field>
-  </record>
-  <!-- tree -->
-  <record id="tree_foo" model="ir.ui.view">
-      <field name="name">dc.foo.tree</field>
-      <field name="model">dc.foo</field>
-      <field name="arch" type="xml">
-          <tree>
-             <field name="name" />
-             <field name="state" />
-          </tree>
-      </field>
-  </record>
-  <!-- form -->
-  <record id="form_foo" model="ir.ui.view">
-      <field name="name">dc.foo.form</field>
-      <field name="model">dc.foo</field>
-      <field name="arch" type="xml">
-          <form string="Account">
-            <sheet>
-              <group>
-                <group>
-                  <field name="name" />
+    <!-- kanban -->
+    <record id="view_kanban_foo" model="ir.ui.view">
+        <field name="name">dc.foo.kanban</field>
+        <field name="model">dc.foo</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <!-- list fileds used in kanban view -->
+                <field name="name"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li><field name="name"/></li>
+                                    <li><field name="state"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- search -->
+    <record id="view_search_foo" model="ir.ui.view">
+        <field name="name">dc.foo.search</field>
+        <field name="model">dc.foo</field>
+        <field name="arch" type="xml">
+            <search string="Foo">
+                <field name="name" />
+                <field name="state" />
+                <separator />
+                <filter string="Bar" name="bar" domain="[('state', '=', 'bar')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="State" name="state" context="{'group_by':'state'}"/>
                 </group>
+            </search>
+        </field>
+    </record>
+    <!-- tree -->
+    <record id="view_tree_foo" model="ir.ui.view">
+        <field name="name">dc.foo.tree</field>
+        <field name="model">dc.foo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <!-- form -->
+    <record id="view_form_foo" model="ir.ui.view">
+        <field name="name">dc.foo.form</field>
+        <field name="model">dc.foo</field>
+        <field name="arch" type="xml">
+            <form string="Account">
+                <sheet>
                 <group>
-                  <field name="state" />
+                    <group>
+                    <field name="name" />
+                    </group>
+                    <group>
+                    <field name="state" />
+                    </group>
                 </group>
-              </group>
-            </sheet>
-          </form>
-      </field>
-  </record>
-  <!-- action -->
-  <record id="action_foo" model="ir.actions.act_window">
-      <field name="name">Action Foo</field>
-      <field name="type">ir.actions.act_window</field>
-      <field name="res_model">dc.foo</field>
-      <field name="view_mode">tree,kanban,form</field>
-      <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-              创建你的第一个 Foo 
-          </p>
-      </field>
-  </record>
-  <!-- menu -->
-  <menuitem id="foo_root"
-      name="Foo"
-      sequence="10"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- action -->
+    <record id="action_foo" model="ir.actions.act_window">
+        <field name="name">Action Foo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dc.foo</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                创建你的第一个 Foo 
+            </p>
+        </field>
+    </record>
+    <!-- menu -->
+    <menuitem id="foo_root"
+        name="Foo"
+        sequence="10"/>
 
-  <menuitem id="foo_bar_root"
-      name="Bar"
-      parent="foo_root"
-      sequence="10"/>
+    <menuitem id="foo_bar_root"
+        name="Bar"
+        parent="foo_root"
+        sequence="10"/>
 
-  <menuitem id="foo_bar"
-      name="Bar"
-      parent="foo_bar_root"
-      sequence="10"
-      action="action_foo"/>
+    <menuitem id="foo_bar"
+        name="Bar"
+        parent="foo_bar_root"
+        sequence="10"
+        action="action_foo"/>
 </odoo>
